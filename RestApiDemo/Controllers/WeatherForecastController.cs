@@ -4,36 +4,58 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System.Text.Json;
 
-namespace RestApiDemo.Controllers
+
+
+namespace WebApplication1.Controllers
 {
+
     [ApiController]
     [Route("[controller]")]
+
     public class WeatherForecastController : ControllerBase
     {
-        private static readonly string[] Summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
-
         private readonly ILogger<WeatherForecastController> _logger;
 
         public WeatherForecastController(ILogger<WeatherForecastController> logger)
         {
             _logger = logger;
         }
+        private static List<Data> users = new List<Data>();
 
-        [HttpGet]
-        public IEnumerable<WeatherForecast> Get()
+
+        [HttpGet("api/user")]
+        public List<Data> Get()
         {
-            var rng = new Random();
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                Date = DateTime.Now.AddDays(index),
-                TemperatureC = rng.Next(-20, 55),
-                Summary = Summaries[rng.Next(Summaries.Length)]
-            })
-            .ToArray();
+            return users;
+        }
+
+        [HttpGet("api/user/{id}")]
+        public Data Get(int id)
+        {
+            var result = users.First(t => t.Id == id);
+            return result;
+        }
+
+        [HttpPost("api/user")]
+        public Data Post([FromBody] JSONViewModle input)
+        {
+            var result = new Data { Id = users.Count() == 0 ? 1 : users[users.Count() - 1].Id + 1, Name = input.Name, Email = input.Email, Password = input.Password };
+            users.Add(result);
+
+            return result;
+
+        }
+
+        [HttpDelete("api/user/{id}")]
+        public void Delete(int id)
+        {
+
+            int index = users.FindIndex(t => t.Id == id);
+            users.RemoveAt(index);
+
+
         }
     }
 }

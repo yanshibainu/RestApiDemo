@@ -1,15 +1,28 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
-namespace RestApiDemo
+namespace WebApplication1
 {
-    public class WeatherForecast
+    public class Data
     {
-        public DateTime Date { get; set; }
+        public int Id { get; set; }
 
-        public int TemperatureC { get; set; }
+        public string Name { get; set; }
 
-        public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
+        public string Email { get; set; }
 
-        public string Summary { get; set; }
+        public string Password { get; set; }
+
+
+
     }
+
+    public class JSONViewModle
+    {
+        public string Name { get; set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
+    }
+
 }
