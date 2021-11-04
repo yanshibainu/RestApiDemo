@@ -5,14 +5,14 @@ using System.Threading.Tasks;
 
 namespace RestApiDemo
 {
-    interface IUsersService
+    public interface IUsersService
     {
         public List<User> list{ get; set; }
         public List<User> All();
-        public User Find(Guid id);
+        public User FindUser(Guid id);
 
         public User AddUser(JSONViewModel input);
-
+        
         public void DeleteUser(Guid id);
        
     }

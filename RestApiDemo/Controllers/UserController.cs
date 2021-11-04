@@ -12,9 +12,9 @@ namespace RestApiDemo.Controllers
 {
 
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/user/[controller]")]
 
-    public class UserController : Controller
+    public class userController : Controller
     {
 
         private static IUsersService _usersService;
@@ -23,7 +23,8 @@ namespace RestApiDemo.Controllers
 
             _usersService = usersServive;
         }
-        
+        //UsersService _usersService = new UsersService();
+
 
 
         [HttpGet]
@@ -32,20 +33,26 @@ namespace RestApiDemo.Controllers
             return _usersService.All();
         }
 
-        [HttpGet("/{id}")]
+        [HttpGet("{id}")]
         public User Index(Guid id)
         {
 
-            return _usersService.Find(id);
+            return _usersService.FindUser(id);
         }
 
         [HttpPost]
         public User Index(JSONViewModel input)
         {
-            return _usersService.AddUser(input); 
+            return _usersService.AddUser(input);
         }
 
-        [HttpDelete("/{id}")]
+        [HttpPut("{id}")]
+        public User Index(Guid id, JSONViewModel input)
+        {
+            return _usersService.UpdateUser(id, input);
+        }
+        
+        [HttpDelete("{id}")]
         public void Delete(Guid id)
         {
 
