@@ -14,7 +14,7 @@ namespace RestApiDemo.Controllers
     [ApiController]
     [Route("api/user/[controller]")]
 
-    public class userController : Controller
+    public class UserController : Controller
     {
 
         private static IUsersService _usersService;

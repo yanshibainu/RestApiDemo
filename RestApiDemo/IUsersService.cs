@@ -14,6 +14,7 @@ namespace RestApiDemo
         public User AddUser(JSONViewModel input);
         
         public void DeleteUser(Guid id);
+        public User UpdateUser(Guid id, JSONViewModel input);
        
     }
 }
