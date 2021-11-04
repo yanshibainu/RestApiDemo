@@ -5,19 +5,19 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Text.Json;
-
+using RestApiDemo.Model;
 
 
 namespace RestApiDemo.Controllers
 {
 
     [ApiController]
-    [Route("api/user/[controller]")]
+    [Route("api/[controller]")]
 
     public class UserController : Controller
     {
 
-        private static IUsersService _usersService;
+        private readonly IUsersService _usersService;
         public UserController(IUsersService usersServive) 
         {
 
