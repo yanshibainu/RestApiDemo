@@ -8,8 +8,7 @@ namespace RestApiDemoTest
     public class UserServiceTest
     {
         private UsersService _usersService;
-
-
+        
         [SetUp]
         public void Setup()
         {
