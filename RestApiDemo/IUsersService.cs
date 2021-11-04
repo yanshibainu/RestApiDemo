@@ -7,7 +7,7 @@ namespace RestApiDemo
 {
     public interface IUsersService
     {
-        public List<User> list{ get; set; }
+        public List<User> list{ get; set; } 
         public List<User> All();
         public User FindUser(Guid id);
 

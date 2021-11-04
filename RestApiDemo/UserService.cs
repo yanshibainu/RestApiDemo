@@ -9,7 +9,7 @@ namespace RestApiDemo
     {
 
         public List<User> list { get; set; }
-        public UsersService() { new List<User>(); }
+        public UsersService() { new List<User>(); } 
 
         public List<User> All()
         {

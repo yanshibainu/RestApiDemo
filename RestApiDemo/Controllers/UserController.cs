@@ -18,7 +18,7 @@ namespace RestApiDemo.Controllers
     {
 
         private static IUsersService _usersService;
-        public UserController(IUsersService usersServive)
+        public UserController(IUsersService usersServive) 
         {
 
             _usersService = usersServive;
