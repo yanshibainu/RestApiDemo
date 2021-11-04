@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Text.Json;
+using RestApiDemo.Model;
+using RestApiDemo.Service;
 
 
 
@@ -12,52 +14,16 @@ namespace RestApiDemo.Controllers
 {
 
     [ApiController]
-    [Route("api/user/[controller]")]
+    [Route("api/[controller]")]
 
-    public class UserController : Controller
+    public class UserController: AbstractController<User, JSONViewModel>
     {
 
-        private static IUsersService _usersService;
-        public UserController(IUsersService usersServive) 
+        public UserController(IUsersService<User, JSONViewModel> usersService): base(usersService)
         {
 
-            _usersService = usersServive;
-        }
-        //UsersService _usersService = new UsersService();
-
-
-
-        [HttpGet]
-        public List<User> Index()
-        {
-            return _usersService.All();
-        }
-
-        [HttpGet("{id}")]
-        public User Index(Guid id)
-        {
-
-            return _usersService.FindUser(id);
-        }
-
-        [HttpPost]
-        public User Index(JSONViewModel input)
-        {
-            return _usersService.AddUser(input);
-        }
-
-        [HttpPut("{id}")]
-        public User Index(Guid id, JSONViewModel input)
-        {
-            return _usersService.UpdateUser(id, input);
         }
         
-        [HttpDelete("{id}")]
-        public void Delete(Guid id)
-        {
 
-            _usersService.DeleteUser(id);
-
-        }
     }
 }

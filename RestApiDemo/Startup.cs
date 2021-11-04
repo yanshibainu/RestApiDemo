@@ -10,6 +10,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using RestApiDemo.Service;
+using RestApiDemo.Model;
 
 namespace RestApiDemo
 {
@@ -27,7 +29,7 @@ namespace RestApiDemo
         {
 
             services.AddControllers();
-            services.AddScoped<IUsersService, UsersService>();
+            services.AddScoped<IUsersService<User, JSONViewModel>, UsersService>();
 
         }
 
