@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using System.Text.Json;
+﻿using Microsoft.AspNetCore.Mvc;
 using RestApiDemo.Model;
 using RestApiDemo.Service;
 
@@ -13,13 +7,13 @@ using RestApiDemo.Service;
 namespace RestApiDemo.Controllers
 {
 
-   // [ApiController]
+    // [ApiController]
     [Route("api/[controller]")]
 
     public class UserController: AbstractController<User, JSONViewModel>
     {
 
-        public UserController(IUsersService<User, JSONViewModel> usersService): base(usersService)
+        public UserController(IService<User, JSONViewModel> usersService): base(usersService)
         {
 
         }

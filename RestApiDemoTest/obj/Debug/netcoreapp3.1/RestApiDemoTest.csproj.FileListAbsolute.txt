@@ -106,3 +106,5 @@ D:\OneDrive\大四上\實習\RestApiDemo\RestApiDemoTest\obj\Debug\netcoreapp3.1
 D:\OneDrive\大四上\實習\RestApiDemo\RestApiDemoTest\obj\Debug\netcoreapp3.1\RestApiDemoTest.dll
 D:\OneDrive\大四上\實習\RestApiDemo\RestApiDemoTest\obj\Debug\netcoreapp3.1\RestApiDemoTest.pdb
 D:\OneDrive\大四上\實習\RestApiDemo\RestApiDemoTest\obj\Debug\netcoreapp3.1\RestApiDemoTest.genruntimeconfig.cache
+D:\OneDrive\大四上\實習\RestApiDemo\RestApiDemoTest\bin\Debug\netcoreapp3.1\Castle.Core.dll
+D:\OneDrive\大四上\實習\RestApiDemo\RestApiDemoTest\bin\Debug\netcoreapp3.1\NSubstitute.dll

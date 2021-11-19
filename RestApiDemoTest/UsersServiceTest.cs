@@ -1,3 +1,5 @@
+using System;
+using NSubstitute;
 using NUnit.Framework;
 using RestApiDemo.Model;
 using RestApiDemo.Service;
@@ -9,9 +11,12 @@ namespace RestApiDemoTest
         private UsersService _usersService;
         private JSONViewModel createData;
         private JSONViewModel editData;
+        private IService<User, JSONViewModel> _IUsersService;
         [SetUp]
         public void Setup()
         {
+            _IUsersService = Substitute.For<IService<User, JSONViewModel>>();
+            //_usersService = new UsersService(_IUsersService);
             _usersService = new UsersService();
             createData = new JSONViewModel()
             {
@@ -63,6 +68,13 @@ namespace RestApiDemoTest
             var findResult= _usersService.Find(user.Id);
             Assert.AreEqual(user, findResult);
 
+        }
+
+        [Test]
+        public void DeleteTest()
+        {
+            var testID = Guid.NewGuid();
+            Assert.//Throws<ArgumentException>(() => _usersService.Find(testID));
         }
         
     }

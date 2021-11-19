@@ -1,19 +1,19 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using RestApiDemo.Model;
-
 
 namespace RestApiDemo.Service
 {
-
-    public class UsersService:IService<User, JSONViewModel>//: AbstractService<User, JSONViewModel>
+    /*public class AbstractService<TEntity, TViewModel>: IService<User, JSONViewModel>
     {
-        
-        public UsersService()
+      /*  public AbstractService(IService<User, JSONViewModel> usersService)
         {
-
+            
+            //_UsersService = usersService;
         }
+
         private List<User> List { get; set; } = new List<User>();
         public IService<User, JSONViewModel> _UsersService { get; }
 
@@ -49,7 +49,7 @@ namespace RestApiDemo.Service
         public User Edit(Guid id, JSONViewModel input)
         {
             int index = List.FindIndex(t => t.Id == id);
-            if (input.Name != null)
+            if(input.Name!=null)
             {
                 List[index].Name = input.Name;
             }
@@ -62,9 +62,6 @@ namespace RestApiDemo.Service
                 List[index].Password = input.Password;
             }
             return List[index];
-        }
-
-    }
-   
-
+        }*/
+    //}
 }

@@ -29,7 +29,7 @@ namespace RestApiDemo
         {
 
             services.AddControllers();
-            services.AddScoped<IUsersService<User, JSONViewModel>, UsersService>();
+            services.AddScoped<IService<User, JSONViewModel>, UsersService>();
 
         }
 

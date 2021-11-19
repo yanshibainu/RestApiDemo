@@ -11,8 +11,8 @@ namespace RestApiDemo.Controllers
     public abstract class AbstractController<TEntity, TViewModel> : Controller, IController<TEntity, TViewModel>
     {
 
-        protected readonly IUsersService<TEntity, TViewModel> _usersService;
-        public AbstractController(IUsersService<TEntity, TViewModel> usersService)
+        protected readonly IService<TEntity, TViewModel> _usersService;
+        public AbstractController(IService<TEntity, TViewModel> usersService)
         {
             _usersService = usersService;
         }
@@ -27,12 +27,12 @@ namespace RestApiDemo.Controllers
             return _usersService.Find(id);
         }
         [HttpPost]
-        public TEntity Index(TViewModel input)
+        public TEntity Create(TViewModel input)
         {
             return _usersService.Create(input);
         }
         [HttpPatch("{id}")]
-        public TEntity Index(Guid id, TViewModel input)
+        public TEntity Update(Guid id, TViewModel input)
         {
             return _usersService.Edit(id, input);
         }
