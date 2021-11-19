@@ -1,7 +1,0 @@
-/RestApiDemo/bin
-*.suo
-*.user
-_ReSharper.*
-bin
-obj
-packages

@@ -6,8 +6,7 @@ using RestApiDemo.Service;
 
 namespace RestApiDemo.Controllers
 {
-
-    // [ApiController]
+    [ApiController]
     [Route("api/[controller]")]
 
     public class UserController: AbstractController<User, JSONViewModel>
