@@ -7,16 +7,11 @@ using RestApiDemo.Model;
 namespace RestApiDemo.Service
 {
     public interface IService<TEntity,TViewModel>
-        //where TEntity, TViewModel: class, new()
     {
         public List<TEntity> All();
-       
         public TEntity Find(Guid id);
-
         public TEntity Create(TViewModel input);
-        
         public void Delete(Guid id);
         public TEntity Edit(Guid id, TViewModel input);
-       
     }
 }

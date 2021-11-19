@@ -9,17 +9,13 @@ namespace RestApiDemo.Service
 
     public class UsersService:IService<User, JSONViewModel>//: AbstractService<User, JSONViewModel>
     {
-        
         public UsersService()
         {
-
         }
         private List<User> List { get; set; } = new List<User>();
         public IService<User, JSONViewModel> _UsersService { get; }
-
         public List<User> All()
         {
-
             return List;
         }
         public User Find(Guid id)
@@ -29,7 +25,6 @@ namespace RestApiDemo.Service
         }
         public User Create(JSONViewModel input)
         {
-
             User result = new User()
             {
                 Id = Guid.NewGuid(),
@@ -63,8 +58,5 @@ namespace RestApiDemo.Service
             }
             return List[index];
         }
-
     }
-   
-
-}
+ }

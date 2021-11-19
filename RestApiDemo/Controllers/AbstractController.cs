@@ -10,7 +10,6 @@ namespace RestApiDemo.Controllers
 {
     public abstract class AbstractController<TEntity, TViewModel> : Controller, IController<TEntity, TViewModel>
     {
-
         protected readonly IService<TEntity, TViewModel> _usersService;
         public AbstractController(IService<TEntity, TViewModel> usersService)
         {
