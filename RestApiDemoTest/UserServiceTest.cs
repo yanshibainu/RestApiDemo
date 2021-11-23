@@ -113,8 +113,10 @@ namespace RestApiDemoTest
         [Test]
         public void DeleteTest()
         {
-            var testID = Guid.NewGuid();
-           /// Assert.//Throws<ArgumentException>(() => _usersService.Find(testID));
+            
+            var user = _usersService.Create(createData);
+            _usersService.Delete(user.Id);
+            Assert.Throws<InvalidOperationException>(() => _usersService.Find(user.Id));
         }
     }
 }
