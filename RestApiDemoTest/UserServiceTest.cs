@@ -5,6 +5,7 @@ using RestApiDemo.Model;
 using NSubstitute;
 using System.Collections.Generic;
 using System.Linq;
+using RestApiDemo.Service;
 
 namespace RestApiDemoTest
 {
@@ -67,11 +68,11 @@ namespace RestApiDemoTest
         [Test]
         public void CreateTest()
         {
-            /*var user = _usersService.Create(createData);
+            var user = _usersService.Create(createData);
             Assert.IsNotNull(user);
             Assert.AreEqual(createData.Email, user.Email);
             Assert.AreEqual(createData.Name, user.Name);
-            Assert.AreEqual(createData.Password, user.Password);-*/
+            Assert.AreEqual(createData.Password, user.Password);
         }
         [Test]
         public void AllTest()
@@ -88,24 +89,26 @@ namespace RestApiDemoTest
         [Test]
         public void EditTest()
         {
-            var editUser = _usersService.Edit(originalData.Id, editData1);
-            Assert.IsNotNull(editUser);
-            //Assert.AreEqual(editUser.Name, editData1.Name);
-
-            /*editUser = _usersService.Edit(originalData.Id, editData2);
+            var user = _usersService.Create(createData);
+            //name
+            var editUser = _usersService.Edit(user.Id, editData1);
             Assert.IsNotNull(editUser);
             Assert.AreEqual(editUser.Name, editData1.Name);
-
-            editUser = _usersService.Edit(originalData.Id, editData2);
+            //email
+            editUser = _usersService.Edit(user.Id, editData2);
             Assert.IsNotNull(editUser);
-            Assert.AreEqual(editUser.Name, editData1.Name);*/
+            Assert.AreEqual(editUser.Name, editData1.Name);
+            //password
+            editUser = _usersService.Edit(user.Id, editData2);
+            Assert.IsNotNull(editUser);
+            Assert.AreEqual(editUser.Name, editData1.Name);
         }
         [Test]
         public void FindTest()
         {
-            /*var user = _usersService.Create(createData);
+            var user = _usersService.Create(createData);
             var findResult = _usersService.Find(user.Id);
-            Assert.AreEqual(user, findResult);*/
+            Assert.AreEqual(user, findResult);
         }
         [Test]
         public void DeleteTest()
