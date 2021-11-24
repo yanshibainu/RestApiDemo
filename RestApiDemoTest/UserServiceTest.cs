@@ -13,7 +13,6 @@ namespace RestApiDemoTest
     {
         private UsersService _usersService;
         private JSONViewModel createData;
-        private User originalData;
         private JSONViewModel editData1;
         private JSONViewModel editData2;
         private JSONViewModel editData3;
@@ -27,13 +26,6 @@ namespace RestApiDemoTest
             _usersService = new UsersService();
             createData = new JSONViewModel()
             {
-                Name = "ABC",
-                Email = "123@123",
-                Password = "123"
-            };
-            originalData = new User()
-            {
-                Id = Guid.NewGuid(),
                 Name = "ABC",
                 Email = "123@123",
                 Password = "123"
@@ -97,11 +89,11 @@ namespace RestApiDemoTest
             //email
             editUser = _usersService.Edit(user.Id, editData2);
             Assert.IsNotNull(editUser);
-            Assert.AreEqual(editUser.Name, editData1.Name);
+            Assert.AreEqual(editUser.Email, editData2.Email);
             //password
-            editUser = _usersService.Edit(user.Id, editData2);
+            editUser = _usersService.Edit(user.Id, editData3);
             Assert.IsNotNull(editUser);
-            Assert.AreEqual(editUser.Name, editData1.Name);
+            Assert.AreEqual(editUser.Password, editData3.Password);
         }
         [Test]
         public void FindTest()
@@ -113,7 +105,6 @@ namespace RestApiDemoTest
         [Test]
         public void DeleteTest()
         {
-            
             var user = _usersService.Create(createData);
             _usersService.Delete(user.Id);
             Assert.Throws<InvalidOperationException>(() => _usersService.Find(user.Id));

@@ -12,10 +12,10 @@ namespace RestApiDemo
             context.Database.EnsureCreated();
             var user = new User[]
             {
-            new User{Id=Guid.NewGuid(),Name="Alexander",Email="Alex@com",Password="Alex"},
-            new User{Id=Guid.NewGuid(),Name="Monica",Email="Monica@com",Password="Monica"},
-            new User{Id=Guid.NewGuid(),Name="Emma",Email="Emma@com",Password="Emma"},
-            new User{Id=Guid.NewGuid(),Name="Jack",Email="Jack@com",Password="Jack"},
+                new User{Id=Guid.NewGuid(),Name="Alexander",Email="Alex@com",Password="Alex"},
+                new User{Id=Guid.NewGuid(),Name="Monica",Email="Monica@com",Password="Monica"},
+                new User{Id=Guid.NewGuid(),Name="Emma",Email="Emma@com",Password="Emma"},
+                new User{Id=Guid.NewGuid(),Name="Jack",Email="Jack@com",Password="Jack"},
             };
             foreach (User s in user)
             {

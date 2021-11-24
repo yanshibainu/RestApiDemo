@@ -13,8 +13,6 @@ namespace RestApiDemo.Service
     {
         private List<User> List= new List<User>() { new User { Id = Guid.NewGuid(), Name = "Alexander", Email = "Alex@com", Password = "Alex" } };
         //private readonly UserDbContext _context;
-        
-
         public List<User> All()
         {
            /* using (var ctx = new UserDbContext())
@@ -36,12 +34,11 @@ namespace RestApiDemo.Service
                 return usersList;
             }*/
             return List;
-
         }
         public User Find(Guid id)
         {
             User result = List.First(t => t.Id == id);
-                return result;
+            return result;
         }
         public User Create(JSONViewModel input)
         {
@@ -79,6 +76,4 @@ namespace RestApiDemo.Service
             return List[index];
         }
     }
-   
-
 }

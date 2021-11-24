@@ -16,8 +16,6 @@ namespace RestApiDemo
         public static void Main(string[] args)
         {
             CreateHostBuilder(args).Build().Run();
-
-
             /*using (var ctx = new UserDbContext())
             {
                 var stud = new User() 
@@ -31,9 +29,7 @@ namespace RestApiDemo
                 ctx.Users.Add(stud);
                 ctx.SaveChanges();
             }*/
-
         }
-
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
