@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestApiDemo", "RestApiDemo\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{28FBC85D-AA88-4772-83C6-5E9F6998B5CC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestApiDemoTest", "RestApiDemoTest\RestApiDemoTest.csproj", "{47712F02-1644-48C8-ACA3-5F41FF3F3FFB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestApiDemoTest", "RestApiDemoTest\RestApiDemoTest.csproj", "{47712F02-1644-48C8-ACA3-5F41FF3F3FFB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
