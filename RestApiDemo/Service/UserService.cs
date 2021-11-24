@@ -4,11 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using RestApiDemo.Model;
 using Microsoft.EntityFrameworkCore;
-
-
 namespace RestApiDemo.Service
 {
-    
     public class UsersService : IService<User, JSONViewModel>
     {
         private List<User> List= new List<User>() { new User { Id = Guid.NewGuid(), Name = "Alexander", Email = "Alex@com", Password = "Alex" } };

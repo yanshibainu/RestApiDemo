@@ -7,8 +7,6 @@ using Microsoft.Extensions.Logging;
 using System.Text.Json;
 using RestApiDemo.Model;
 using RestApiDemo.Service;
-
-
 namespace RestApiDemo.Controllers
 {
     [ApiController]
@@ -22,4 +20,3 @@ namespace RestApiDemo.Controllers
         }
     }
 }
-
