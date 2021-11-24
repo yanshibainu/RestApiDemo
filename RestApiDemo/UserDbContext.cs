@@ -12,7 +12,7 @@ namespace RestApiDemo
         public UserDbContext(DbContextOptions<UserDbContext> options) : base(options)
         {
         }
-        public UserDbContext() 
+        public UserDbContext()
         {
         }
         /*public Guid Id { get; set; }

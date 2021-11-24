@@ -9,11 +9,10 @@ namespace RestApiDemo.Service
     public class UsersService : IService<User, JSONViewModel>
     {
         private List<User> List= new List<User>() { new User { Id = Guid.NewGuid(), Name = "Alexander", Email = "Alex@com", Password = "Alex" } };
-        //private readonly UserDbContext _context;
+        private readonly UserDbContext db = new UserDbContext();
         public List<User> All()
         {
-           /* using (var ctx = new UserDbContext())
-            {
+             
                 var user = new User()
                 {
                     Id = Guid.NewGuid(),
@@ -22,15 +21,15 @@ namespace RestApiDemo.Service
                     Password = "default"
                 };
 
-                ctx.Users.Add(user);
-                ctx.SaveChanges();
-            }
+                db.Add(user);
+                db.SaveChanges();
+            
             using (UserDbContext context = new UserDbContext())
             {
                 var usersList = context.Users.ToList();
                 return usersList;
-            }*/
-            return List;
+            }
+            //return List;
         }
         public User Find(Guid id)
         {

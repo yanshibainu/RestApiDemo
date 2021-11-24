@@ -13,10 +13,9 @@ namespace RestApiDemo.Controllers
     [Route("api/[controller]")]
     public class UserController : AbstractController<User, JSONViewModel>
     {
-        private readonly UserDbContext _context;
-        public UserController(IService<User, JSONViewModel> usersService, UserDbContext context) : base(usersService)
+      
+        public UserController(IService<User, JSONViewModel> usersService) : base(usersService)
         {
-            _context = context;
         }
     }
 }
