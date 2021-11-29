@@ -29,7 +29,7 @@ namespace RestApiDemo
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddScoped<IService<User, JSONViewModel>, UsersService>();
+            services.AddScoped<IRepository<User, JSONViewModel>, UsersService>();
             services.AddDbContext<UserDbContext>(options =>
             {
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));

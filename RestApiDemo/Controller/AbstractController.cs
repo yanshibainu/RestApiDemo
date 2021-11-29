@@ -7,10 +7,10 @@ using RestApiDemo.Service;
 
 namespace RestApiDemo.Controllers
 {
-    public abstract class AbstractController<TEntity, TViewModel> : Controller, IController<TEntity, TViewModel>
+    public abstract class AbstractController<TEntity, TViewModel> : Controller, IController<TEntity, TViewModel> where TEntity : class
     {
-        protected readonly IService<TEntity, TViewModel> _usersService;
-        public AbstractController(IService<TEntity, TViewModel> usersService)
+        protected readonly IRepository<TEntity, TViewModel> _usersService;
+        public AbstractController(IRepository<TEntity, TViewModel> usersService)
         {
             _usersService = usersService;
         }
@@ -25,7 +25,7 @@ namespace RestApiDemo.Controllers
             return _usersService.Find(id);
         }
         [HttpPost]
-        public TEntity Create(TViewModel input)
+        public TEntity Create(TEntity input)
         {
             return _usersService.Create(input);
         }

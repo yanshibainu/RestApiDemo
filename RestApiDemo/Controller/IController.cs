@@ -9,7 +9,7 @@ namespace RestApiDemo.Controllers
     {
         public List<TEntity> Index();
         public TEntity Index(Guid id);
-        public TEntity Create(TViewModel input);
+        public TEntity Create(TEntity input);
         public void Delete(Guid id);
         public TEntity Update(Guid id, TViewModel input);
     }

@@ -14,7 +14,7 @@ namespace RestApiDemo.Controllers
     public class UserController : AbstractController<User, JSONViewModel>
     {
       
-        public UserController(IService<User, JSONViewModel> usersService) : base(usersService)
+        public UserController(IRepository<User, JSONViewModel> usersService) : base(usersService)
         {
         }
     }

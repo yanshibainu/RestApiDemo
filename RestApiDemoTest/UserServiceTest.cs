@@ -12,19 +12,18 @@ namespace RestApiDemoTest
     public class UsersServiceTest
     {
         private UsersService _usersService;
-        private JSONViewModel createData;
+        private User createData;
         private JSONViewModel editData1;
         private JSONViewModel editData2;
         private JSONViewModel editData3;
-        private IService<User, JSONViewModel> _IUsersService;
+        private IRepository<User, JSONViewModel> _IUsersService;
         private List<User> defaultList;
         private User AllTestData;
         [SetUp]
         public void Setup()
         {
-            _IUsersService = Substitute.For<IService<User, JSONViewModel>>();
-            _usersService = new UsersService();
-            createData = new JSONViewModel()
+            _IUsersService = Substitute.For<IRepository<User, JSONViewModel>>();
+            createData = new User()
             {
                 Name = "ABC",
                 Email = "123@123",

@@ -12,10 +12,6 @@ namespace RestApiDemo
         public UserDbContext(DbContextOptions<UserDbContext> options) : base(options)
         {
         }
-        /*public Guid Id { get; set; }
-        public string Name { get; set; }
-        public string Email { get; set; }
-        public string Password { get; set; }*/
         public DbSet<User> Users { get; set; }
     }
 }
