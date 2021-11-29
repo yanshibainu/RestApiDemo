@@ -9,67 +9,47 @@ namespace RestApiDemo.Service
     public class UsersService : IService<User, JSONViewModel>
     {
         private List<User> List= new List<User>() { new User { Id = Guid.NewGuid(), Name = "Alexander", Email = "Alex@com", Password = "Alex" } };
-        private readonly UserDbContext db = new UserDbContext();
+        private UserDbContext _context;
+        public UsersService(UserDbContext context)
+        {
+            _context = context;
+        }
         public List<User> All()
         {
-             
-                var user = new User()
-                {
-                    Id = Guid.NewGuid(),
-                    Name = "default",
-                    Email = "default@com",
-                    Password = "default"
-                };
-
-                db.Add(user);
-                db.SaveChanges();
-            
-            using (UserDbContext context = new UserDbContext())
-            {
-                var usersList = context.Users.ToList();
-                return usersList;
-            }
-            //return List;
+            var List = _context.Users.ToList();
+            return List;
         }
         public User Find(Guid id)
         {
-            User result = List.First(t => t.Id == id);
+            User result = _context.Users.First(t => t.Id == id);
             return result;
         }
         public User Create(JSONViewModel input)
         {
-            User result = new User
+            var user = new User()
             {
                 Id = Guid.NewGuid(),
                 Name = input.Name,
                 Email = input.Email,
                 Password = input.Password
             };
-            List.Add(result);
-            return result;
+            _context.Add(user);
+            _context.SaveChanges();
+            return user;
         }
         public void Delete(Guid id)
         {
-            int index = List.FindIndex(t => t.Id == id);
-            if (index != -1)
-                List.RemoveAt(index);
+            var deleteItem = _context.Users.First(x => x.Id == id);
+            _context.Users.Remove(deleteItem);
+            _context.SaveChanges();
         }
         public User Edit(Guid id, JSONViewModel input)
         {
-            int index = List.FindIndex(t => t.Id == id);
-            if (input.Name!=null)
-            {
-                List[index].Name = input.Name;
-            } 
-            if(input.Email!=null)
-            {
-                List[index].Email = input.Email;
-            }
-            if(input.Password!=null)
-            {
-                List[index].Password = input.Password;
-            }
-            return List[index];
+            var editItem = _context.Users.First(x => x.Id == id);
+            _context.Entry(editItem).CurrentValues.SetValues(input);
+            _context.SaveChanges();
+            editItem = _context.Users.First(x => x.Id == id);
+            return editItem;
         }
     }
 }
