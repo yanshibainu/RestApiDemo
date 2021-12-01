@@ -2,7 +2,7 @@
 
 namespace RestApiDemo.Migrations
 {
-    public partial class addinservice : Migration
+    public partial class StoreAndProducy : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

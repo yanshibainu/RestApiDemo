@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using RestApiDemo.Model;
 
 namespace RestApiDemo
@@ -13,5 +9,8 @@ namespace RestApiDemo
         {
         }
         public DbSet<User> Users { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<Store> Stores { get; set; }
+        public DbSet<Order> Orders { get; set; }
     }
 }
