@@ -9,35 +9,35 @@ namespace RestApiDemo.Controllers
 {
     public abstract class AbstractController<TEntity, TViewModel> : Controller, IController<TEntity, TViewModel> where TEntity : class
     {
-        protected readonly IRepository<TEntity, TViewModel> _usersService;
-        public AbstractController(IRepository<TEntity, TViewModel> usersService)
+        protected readonly IRepository<TEntity, TViewModel> _Service;
+        public AbstractController(IRepository<TEntity, TViewModel> Service)
         {
-            _usersService = usersService;
+            _Service = Service;
         }
         [HttpGet]
         public List<TEntity> Index()
         {
-            return _usersService.All();
+            return _Service.All();
         }
         [HttpGet("{id}")]
         public TEntity Index(Guid id)
         {
-            return _usersService.Find(id);
+            return _Service.Find(id);
         }
         [HttpPost]
         public TEntity Create(TEntity input)
         {
-            return _usersService.Create(input);
+            return _Service.Create(input);
         }
         [HttpPatch("{id}")]
         public TEntity Update(Guid id, TViewModel input)
         {
-            return _usersService.Edit(id, input);
+            return _Service.Edit(id, input);
         }
         [HttpDelete("{id}")]
         public void Delete(Guid id)
         {
-            _usersService.Delete(id);
+            _Service.Delete(id);
         }
     }
 }

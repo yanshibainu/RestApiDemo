@@ -7,10 +7,11 @@ namespace RestApiDemo.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class StoreController : AbstractController<Store, StoreViewModel>
+    public class OrderController: AbstractController<Order, OrderViewModel>
     {
-        public StoreController(IRepository<Store, StoreViewModel> Service) : base(Service)
+        public OrderController(IRepository<Order, OrderViewModel> Service) : base(Service)
         {
+
         }
     }
 }

@@ -31,6 +31,8 @@ namespace RestApiDemo
             services.AddControllers();
             services.AddScoped<IRepository<User, UserViewModel>, UsersService>();
             services.AddScoped<IRepository<Store, StoreViewModel>, StoresService>();
+            services.AddScoped<IRepository<Product, ProductViewModel>, ProductsService>();
+            services.AddScoped<IRepository<Order, OrderViewModel>, OrdersService>();
             services.AddDbContext<DbContext>(options =>
             {
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
