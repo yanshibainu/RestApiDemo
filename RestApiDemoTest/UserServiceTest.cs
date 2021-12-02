@@ -13,35 +13,35 @@ namespace RestApiDemoTest
     {
         private UsersService _usersService;
         private User createData;
-        private JSONViewModel editData1;
-        private JSONViewModel editData2;
-        private JSONViewModel editData3;
-        private IRepository<User, JSONViewModel> _IUsersService;
+        private UserViewModel editData1;
+        private UserViewModel editData2;
+        private UserViewModel editData3;
+        private IRepository<User, UserViewModel> _IUsersService;
         private List<User> defaultList;
         private User AllTestData;
         [SetUp]
         public void Setup()
         {
-            _IUsersService = Substitute.For<IRepository<User, JSONViewModel>>();
+            _IUsersService = Substitute.For<IRepository<User, UserViewModel>>();
             createData = new User()
             {
                 Name = "ABC",
                 Email = "123@123",
                 Password = "123"
             };
-            editData1 = new JSONViewModel()
+            editData1 = new UserViewModel()
             {
                 Name = "DEF",
                 Email = null,
                 Password = null
             };
-            editData2 = new JSONViewModel()
+            editData2 = new UserViewModel()
             {
                 Name = null,
                 Email = "456@456",
                 Password = null
             };
-            editData3 = new JSONViewModel()
+            editData3 = new UserViewModel()
             {
                 Name = null,
                 Email = null,

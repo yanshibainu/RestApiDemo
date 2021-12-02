@@ -8,7 +8,7 @@ using RestApiDemo;
 
 namespace RestApiDemo.Migrations
 {
-    [DbContext(typeof(UserDbContext))]
+    [DbContext(typeof(DbContext))]
     [Migration("20211122041012_init")]
     partial class init
     {

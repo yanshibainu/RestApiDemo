@@ -3,9 +3,9 @@ using RestApiDemo.Model;
 
 namespace RestApiDemo
 {
-    public class UserDbContext : DbContext
+    public class DbContext : Microsoft.EntityFrameworkCore.DbContext
     {
-        public UserDbContext(DbContextOptions<UserDbContext> options) : base(options)
+        public DbContext(DbContextOptions<DbContext> options) : base(options)
         {
         }
         public DbSet<User> Users { get; set; }

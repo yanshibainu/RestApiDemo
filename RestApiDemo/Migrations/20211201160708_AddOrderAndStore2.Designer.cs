@@ -9,7 +9,7 @@ using RestApiDemo;
 
 namespace RestApiDemo.Migrations
 {
-    [DbContext(typeof(UserDbContext))]
+    [DbContext(typeof(DbContext))]
     [Migration("20211201160708_AddOrderAndStore2")]
     partial class AddOrderAndStore2
     {

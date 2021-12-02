@@ -10,8 +10,8 @@ using RestApiDemo;
 namespace RestApiDemo.Migrations
 {
     [DbContext(typeof(DbContext))]
-    [Migration("20211201162547_StoreAndProducy")]
-    partial class StoreAndProducy
+    [Migration("20211202021550_productNameChange")]
+    partial class productNameChange
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -45,20 +45,21 @@ namespace RestApiDemo.Migrations
 
             modelBuilder.Entity("RestApiDemo.Model.Product", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<Guid>("ProductId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("ProductName")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double>("Price")
+                    b.Property<double>("ProductPrice")
                         .HasColumnType("float");
 
                     b.Property<Guid>("StoreId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.HasKey("Id");
+                    b.HasKey("ProductId");
 
                     b.ToTable("Products");
                 });
@@ -73,6 +74,7 @@ namespace RestApiDemo.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("StoreName")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("StoreId");
@@ -87,9 +89,6 @@ namespace RestApiDemo.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Gender")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")

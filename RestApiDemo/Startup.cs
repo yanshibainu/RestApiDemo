@@ -29,8 +29,9 @@ namespace RestApiDemo
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddScoped<IRepository<User, JSONViewModel>, UsersService>();
-            services.AddDbContext<UserDbContext>(options =>
+            services.AddScoped<IRepository<User, UserViewModel>, UsersService>();
+            services.AddScoped<IRepository<Store, StoreViewModel>, StoresService>();
+            services.AddDbContext<DbContext>(options =>
             {
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
@@ -38,7 +39,7 @@ namespace RestApiDemo
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, UserDbContext dbContext)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, DbContext dbContext)
         {
             dbContext.Database.EnsureCreated();
             app.UseHttpsRedirection();

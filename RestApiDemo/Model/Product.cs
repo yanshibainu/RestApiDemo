@@ -9,9 +9,10 @@ namespace RestApiDemo.Model
     public class Product
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid Id { get; set; }
-        public string Name { get; set; }
-        public double Price { get; set; }
+        public Guid ProductId { get; set; }
+        [Required]
+        public string ProductName { get; set; }
+        public double ProductPrice { get; set; }
         public ICollection<Order> Orders;
         [ForeignKey("Store")]
         public Guid StoreId { get; set; }

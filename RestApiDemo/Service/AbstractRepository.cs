@@ -8,8 +8,8 @@ namespace RestApiDemo.Service
 {
     public abstract class AbstractRepository<TEntity, TViewModel>: IRepository<TEntity, TViewModel> where TEntity : class
     {
-        protected readonly DbContext _context;
-        public AbstractRepository(DbContext context)
+        protected readonly Microsoft.EntityFrameworkCore.DbContext _context;
+        public AbstractRepository(Microsoft.EntityFrameworkCore.DbContext context)
         {
             _context = context;
         }

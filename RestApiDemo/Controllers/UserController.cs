@@ -11,10 +11,10 @@ namespace RestApiDemo.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class UserController : AbstractController<User, JSONViewModel>
+    public class UserController : AbstractController<User, UserViewModel>
     {
       
-        public UserController(IRepository<User, JSONViewModel> usersService) : base(usersService)
+        public UserController(IRepository<User, UserViewModel> usersService) : base(usersService)
         {
         }
     }
