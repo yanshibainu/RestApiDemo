@@ -7,10 +7,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using RestApiDemo.Model;
+using RestApiDemo.Service;
+using Microsoft.EntityFrameworkCore;
 
 namespace RestApiDemo
 {
@@ -26,7 +25,16 @@ namespace RestApiDemo
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            services.AddControllers();
+            services.AddScoped<IRepository<User, UserViewModel>, UsersService>();
+            services.AddScoped<IRepository<Store, StoreViewModel>, StoresService>();
+            services.AddScoped<IRepository<Product, ProductViewModel>, ProductsService>();
+            services.AddScoped<IRepository<Order, OrderViewModel>, OrdersService>();
+            //services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies)
+            services.AddDbContext<UserDbContext>(options =>
+            {
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
+            });
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -35,8 +43,9 @@ namespace RestApiDemo
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, UserDbContext dbContext)
         {
+            dbContext.Database.EnsureCreated();
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
