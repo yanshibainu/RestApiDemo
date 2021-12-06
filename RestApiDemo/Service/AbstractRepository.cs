@@ -2,14 +2,13 @@
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
-using RestApiDemo.Model;
 
 namespace RestApiDemo.Service
 {
     public abstract class AbstractRepository<TEntity, TViewModel> : IRepository<TEntity, TViewModel> where TEntity : class
     {
-        protected readonly Microsoft.EntityFrameworkCore.DbContext _context;
-        public AbstractRepository(Microsoft.EntityFrameworkCore.DbContext context)
+        protected readonly UserDbContext _context;
+        public AbstractRepository(UserDbContext context)
         {
             _context = context;
         }

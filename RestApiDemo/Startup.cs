@@ -30,6 +30,7 @@ namespace RestApiDemo
             services.AddScoped<IRepository<Store, StoreViewModel>, StoresService>();
             services.AddScoped<IRepository<Product, ProductViewModel>, ProductsService>();
             services.AddScoped<IRepository<Order, OrderViewModel>, OrdersService>();
+            services.AddScoped<ISelectRepository, SelectsService>();
             //services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies)
             services.AddDbContext<UserDbContext>(options =>
             {

@@ -20,5 +20,7 @@ namespace RestApiDemo.Model
         public Product Product { get; set; }
         [Required(ErrorMessage = "Please enter the product ID number.")]
         public Guid ProductId { get; set; }
+        [Required(ErrorMessage = "Please　enter the number of product.")]
+        public int ProductNumber { get; set; }
     }
 }
